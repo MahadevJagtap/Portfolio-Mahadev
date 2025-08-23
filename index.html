@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  
+  <!-- Font Awesome for Social Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mahadev | Portfolio</title>
+  <meta name="description" content="Mahadev — Java Developer, AI/ML & Full-Stack Engineer." />
+
+  <!-- Favicon (your request) -->
+  <link rel="icon" type="image/png"
+        href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb7AKrVADW6ZLRXrHzRO8RqI4edW999Vc-I2Smt_8bYC0UpqpC86uhFl8&s"/>
+
+  <!-- Fonts + Tailwind -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui'] },
+          colors: { brand: { 500:'#3B82F6', 600:'#2563EB' } },
+          boxShadow: { soft: '0 10px 30px rgba(0,0,0,.08)' }
+        }
+      }
+    }
+  </script>
+  <style>
+    .glass { background: rgba(255,255,255,.7); backdrop-filter: blur(8px); }
+    .dark .glass { background: rgba(2,6,23,.6); }
+    .nav-link { transition: color .2s ease; }
+    .card { transition: transform .25s ease, box-shadow .25s ease;}
+    .card:hover { transform: translateY(-6px); box-shadow: 0 16px 32px rgba(0,0,0,.12);}
+  </style>
+</head>
+
+<body class="bg-white text-slate-800 dark:bg-slate-900 dark:text-slate-100">
+
+  <!-- NAVBAR (no logo on left, links center, button right) -->
+  <header class="fixed inset-x-0 top-0 z-50 glass shadow-sm">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="h-16 grid grid-cols-3 items-center">
+        <div>      <h1 class="text-xl font-bold text-blue-600">My Portfolio</h1>
+</div>
+
+        <nav class="justify-self-center hidden sm:flex gap-8 font-medium">
+          <a href="#about" class="nav-link hover:text-brand-600">About</a>
+          <a href="#skills" class="nav-link hover:text-brand-600">Skills</a>
+          <a href="#projects" class="nav-link hover:text-brand-600">Projects</a>
+          <a href="#contact" class="nav-link hover:text-brand-600">Contact</a>
+        </nav>
+
+        <div class="justify-self-end flex items-center gap-2 ml-16 ">
+          <!-- Dark mode toggle (like reference) -->
+            <!-- Dark mode toggle -->
+        <button id="themeBtn" aria-label="Toggle theme"
+                class="p-2 rounded-full hover:bg-slate-200/60 dark:hover:bg-slate-800 transition">
+          <!-- Sun Icon (Light Mode) -->
+          <svg id="sun" xmlns="http://www.w3.org/2000/svg"
+               class="h-5 w-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 3v2m0 14v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M3 12h2m14 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42M12 8a4 4 0 100 8 4 4 0 000-8z"/>
+          </svg>
+          
+          <!-- Moon Icon (Dark Mode) -->
+          <svg id="moon" xmlns="http://www.w3.org/2000/svg"
+               class="h-5 w-5 dark:hidden" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+          </svg>
+        </button>
+
+
+          <a href="mailto:mmjagtap007@gmail.com"
+             class="hidden sm:inline-flex items-center px-4 py-2 rounded-full bg-blue-600 text-white font-medium hover:bg-blue-700">
+             <i class="fas fa-envelope mr-2"></i> <!-- Email Icon --> Get in Touch
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO (centered, gradient like the reference) -->
+  <section id="hero" class="min-h-[100vh] sm:min-h-[100vh] flex items-center justify-center text-center
+                             bg-gradient-to-br from-slate-50 to-blue-100 dark:from-slate-900 dark:to-slate-800">
+    <div class="max-w-4xl mx-auto px-6 pt-24">
+      <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight">
+        Hi, I’m <span class="text-blue-600">Mahadev</span>
+      </h1>
+      <p class="mt-6 text-lg sm:text-xl text-slate-600 dark:text-slate-300">
+       A Computer Science (AI & ML) Student from India, passionate about building scalable solutions, web development, and machine learning innovations.
+      </p>
+
+      <!-- Update this to your real resume file path in your repo, e.g. /assets/Mahadev_Resume.pdf -->
+      <a href="https://drive.google.com/file/d/1M2HADqdadtgLGqCfNC9w7mm0pfwlUdgE/view?usp=drivesdk " target="_blank"
+         class="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white border border-slate-200
+                text-slate-800 shadow hover:shadow-md dark:bg-slate-900 dark:border-slate-700 dark:text-slate-100">
+         <i class="fa-solid fa-up-right-from-square"></i>
+        View Resume
+      </a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-16 bg-white dark:bg-slate-900">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+      About Me
+    </h2>
+    <div class="w-20 h-1 bg-blue-500 mx-auto mb-8"></div>
+    
+    <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+      I'm Mahadev Jagtap, a Computer Science (AI & ML) student from India,
+      passionate about building scalable solutions, web development, and
+      machine learning innovations.
+    </p>
+    
+    <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+      I enjoy solving real-world problems with technology, exploring AI-driven
+      solutions, and working with tools like Java, Python, SQL, and Full-Stack
+      Development. I'm always eager to learn and contribute to impactful projects.
+    </p>
+  </div>
+</section>
+
+
+<!-- SKILLS (icons + hover) -->
+<section id="skills" class="py-8 bg-slate-50 dark:bg-slate-950/30">
+  <div class="bg-gray-50 dark:bg-slate-900 py-12">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-2 text-gray-900 dark:text-white">
+        Skills & Technologies
+      </h2>
+      <div class="w-24 h-1 bg-blue-600 mx-auto rounded"></div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
+
+        <!-- Languages Card -->
+        <div class="relative group">
+          <div class="absolute -inset-0.5 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+          <div class="relative bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-md">
+            <h3 class="font-semibold text-lg mb-2 flex items-center gap-2 text-gray-900 dark:text-gray-100">
+              💻 Languages
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm mb-8">
+              Languages I use for backend, scripting, and web development.
+            </p>
+            <div class="flex flex-wrap gap-2">
+               <span class="flex items-center gap-1 px-2 py-1 bg-gray-100 dark:bg-slate-700 rounded text-sm text-gray-800 dark:text-gray-200">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" class="w-4 h-4"/> Java
+              </span>
+              
+              <span class="flex items-center gap-1 px-1 py-1 bg-gray-100 dark:bg-slate-700 rounded text-sm text-gray-800 dark:text-gray-200">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="w-4 h-4"/> JavaScript
+              </span>
+
+              <span class="flex items-center gap-1 px-1 py-1 bg-gray-100 dark:bg-slate-700 rounded text-sm text-gray-800 dark:text-gray-200">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" class="w-4 h-4"/> TypeScript
+              </span>
+              <span class="flex items-center gap-1 px-2 py-1 bg-gray-100 dark:bg-slate-700 rounded text-sm text-gray-800 dark:text-gray-200">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="w-4 h-4"/> Python
+              </span>
+             
+            </div>
+          </div>
+        </div>
+
+        <!-- Front-End Card -->
+        <div class="relative group">
+          <div class="absolute -inset-0.5 bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+          <div class="relative bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-md">
+            <h3 class="font-semibold text-lg mb-2 flex items-center gap-2 text-gray-900 dark:text-gray-100">🖥️ Front-End</h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+              Tools and frameworks I use to build interactive UIs.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="flex items-center gap-1 px-3 py-1 bg-gray-100 dark:bg-slate-700 rounded text-sm text-gray-800 dark:text-gray-200">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="w-4 h-4"/> HTML5
+              </span>
+              <span class="flex items-center gap-1 px-3 py-1 bg-gray-100 dark:bg-slate-700 rounded text-sm text-gray-800 dark:text-gray-200">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="w-4 h-4"/> CSS3
+              </span>
+              <span class="flex items-center gap-1 px-3 py-1 bg-gray-100 dark:bg-slate-700 rounded text-sm text-gray-800 dark:text-gray-200">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="w-4 h-4"/> React
+              </span>
+              <span class="flex items-center gap-1 px-3 py-1 bg-gray-100 dark:bg-slate-700 rounded text-sm text-gray-800 dark:text-gray-200">
+                <img src="https://logo.svgcdn.com/l/tailwindcss-icon.svg" class="w-4 h-4"/> Tailwind CSS
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Back-End Card -->
+        <div class="relative group">
+          <div class="absolute -inset-0.5 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+          <div class="relative bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-md">
+            <h3 class="font-semibold text-lg mb-2 flex items-center gap-2 text-gray-900 dark:text-gray-100">⚙️ Back-End</h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm ">
+              Technologies I use to build scalable backend services.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="flex items-center gap-1 px-3 py-1 bg-gray-100 dark:bg-slate-700 rounded text-sm text-gray-800 dark:text-gray-200">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" class="w-4 h-4"/> Node.js
+              </span>
+              <span class="flex items-center gap-1 px-3 py-1 bg-gray-100 dark:bg-slate-700 rounded text-sm text-gray-800 dark:text-gray-200">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"class="w-4 h-4"/> Express.js
+              </span>
+              <span class="flex items-center gap-1 px-3 py-1 bg-gray-100 dark:bg-slate-700 rounded text-sm text-gray-800 dark:text-gray-200">
+                <img src="https://img.icons8.com/fluency/48/api-settings.png" class="w-4 h-4"/> REST API
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Databases & Tools Card -->
+        <div class="relative group">
+          <div class="absolute -inset-0.5 bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+          <div class="relative bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-md">
+            <h3 class="font-semibold text-lg mb-2 flex items-center gap-2 text-gray-900 dark:text-gray-100">🗂️ Databases & Tools</h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+              Databases I use for storage and data management.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="flex items-center gap-1 px-3 py-1 bg-gray-100 dark:bg-slate-700 rounded text-sm text-gray-800 dark:text-gray-200">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" class="w-4 h-4"/> PostgreSQL
+              </span>
+              <span class="flex items-center gap-1 px-3 py-1 bg-gray-100 dark:bg-slate-700 rounded text-sm text-gray-800 dark:text-gray-200">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" class="w-4 h-4"/> MongoDB
+              </span>
+              <span class="flex items-center gap-1 px-3 py-1 bg-gray-100 dark:bg-slate-700 rounded text-sm text-gray-800 dark:text-gray-200">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="w-4 h-4"/> Git
+              </span>
+              <span class="flex items-center gap-1 px-3 py-1 bg-gray-100 dark:bg-slate-700 rounded text-sm text-gray-800 dark:text-gray-200">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="w-4 h-4"/> GitHub
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- PROJECTS (cards clickable) -->
+ <!-- PROJECTS (cards clickable) -->
+<section id="projects" class="py-4 bg-slate-50 dark:bg-slate-950/30">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-2xl font-bold text-center mb-2 text-gray-900 dark:text-gray-100">Projects</h2>
+    <div class="w-16 h-1 bg-blue-600 mx-auto rounded"></div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
+
+      <!-- Osteoporosis Detection -->
+     <div class="relative bg-white dark:bg-slate-900 rounded-xl shadow-lg p-6 transition-all duration-500 hover:scale-105 hover:shadow-2xl group overflow-hidden">
+  <div class="absolute -inset-0.5 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+  <div class="relative bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-md">
+    <img src="images/osteoporosis.png" alt="Osteoporosis Detection" class="rounded-md mb-4">
+    <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">Osteoporosis Detection</h3>
+    <p class="text-gray-600 dark:text-gray-300 mb-4">Built a deep learning model using knee X-rays to detect Osteoporosis at early stages for better healthcare diagnosis.</p>
+    <div class="flex gap-2 mb-4">
+      <span class="px-3 py-1 bg-gray-200 dark:bg-slate-700 rounded-lg text-sm">Python</span>
+      <span class="px-3 py-1 bg-gray-200 dark:bg-slate-700 rounded-lg text-sm">TensorFlow</span>
+      <span class="px-3 py-1 bg-gray-200 dark:bg-slate-700 rounded-lg text-sm">Deep Learning</span>
+    </div>
+    <a href="https://github.com/mahadevjagtap/osteoporosis-detection" target="_blank" class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline">
+      <i class="fab fa-github mr-2"></i> Source Code
+    </a>
+  </div>
+</div>
+    <!-- MedLocs -->
+<div class="relative bg-white dark:bg-slate-900 rounded-xl shadow-lg p-6 transition-all duration-500 hover:scale-105 hover:shadow-2xl group overflow-hidden">
+  <div class="absolute -inset-0.5 bg-gradient-to-r from-indigo-400 via-blue-500 to-teal-400 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+  <div class="relative bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-md">
+    <img src="images/medlocs.png" alt="MedLocs" class="rounded-md mb-4">
+    <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">MedLocs</h3>
+    <p class="text-gray-600 dark:text-gray-300 mb-4">Developed a medicine delivery app enabling users to browse medicines, view details, and order conveniently with discounts.</p>
+    <div class="flex gap-2 mb-4">
+      <span class="px-3 py-1 bg-gray-200 dark:bg-slate-700 rounded-lg text-sm">Flutter</span>
+      <span class="px-3 py-1 bg-gray-200 dark:bg-slate-700 rounded-lg text-sm">Firebase</span>
+      <span class="px-3 py-1 bg-gray-200 dark:bg-slate-700 rounded-lg text-sm">Dart</span>
+    </div>
+    <a href="https://github.com/mahadevjagtap/medlocs" target="_blank" class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline">
+      <i class="fab fa-github mr-2"></i> Source Code
+    </a>
+  </div>
+</div>
+
+        <!-- Project Card --> <!-- Premier Website -->
+      <div class="relative bg-white dark:bg-slate-900 rounded-xl shadow-lg p-6 transition-all duration-500 hover:scale-105 hover:shadow-2xl group overflow-hidden">
+  <div class="absolute -inset-0.5 bg-gradient-to-r from-pink-400 via-blue-500 to-green-400 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+  <div class="relative bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-md">
+    <img src="images/premier-website.png" alt="Premier Website" class="rounded-md mb-4">
+    <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">Premier Website</h3>
+    <p class="text-gray-600 dark:text-gray-300 mb-4">Developed a modern and responsive Premier Website with smooth UI/UX, optimized layouts, and interactive features.</p>
+    <div class="flex gap-2 mb-4">
+      <span class="px-3 py-1 bg-gray-200 dark:bg-slate-700 rounded-lg text-sm">React.js</span>
+      <span class="px-3 py-1 bg-gray-200 dark:bg-slate-700 rounded-lg text-sm">CSS</span>
+      <span class="px-3 py-1 bg-gray-200 dark:bg-slate-700 rounded-lg text-sm">JavaScript</span>
+    </div>
+    <a href="https://github.com/mahadevjagtap/premier-website" target="_blank" class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline">
+      <i class="fab fa-github mr-2"></i> Source Code
+    </a>
+  </div>
+</div>
+
+      <!-- Obys Agency -->
+     <!-- Obys Agency Website -->
+<div class="relative bg-white dark:bg-slate-900 rounded-xl shadow-lg p-6 transition-all duration-500 hover:scale-105 hover:shadow-2xl group overflow-hidden">
+  <!-- Glowing gradient background on hover -->
+  <div class="absolute -inset-0.5 bg-gradient-to-r from-pink-400 via-purple-500 to-indigo-500 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+  
+  <!-- Card Content -->
+  <div class="relative bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-md">
+    <!-- Project Image -->
+    <img src="images/obys-agency.png" alt="Obys Agency Website" class="rounded-md mb-4">
+
+    <!-- Project Title -->
+    <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">Obys Agency Website</h3>
+
+    <!-- Project Description -->
+    <p class="text-gray-600 dark:text-gray-300 mb-4">
+      A visually engaging creative agency website built with smooth animations,
+      responsive layouts, and a modern UI/UX design inspired by real-world agency portfolios.
+    </p>
+
+    <!-- Tech Stack -->
+    <div class="flex gap-2 mb-4">
+      <span class="px-3 py-1 bg-gray-200 dark:bg-slate-700 rounded-lg text-sm">HTML</span>
+      <span class="px-3 py-1 bg-gray-200 dark:bg-slate-700 rounded-lg text-sm">CSS</span>
+      <span class="px-3 py-1 bg-gray-200 dark:bg-slate-700 rounded-lg text-sm">JavaScript</span>
+    </div>
+
+    <!-- Source Code Link -->
+    <a href="https://github.com/mahadevjagtap/obys-agency" target="_blank"
+       class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline">
+      <i class="fab fa-github mr-2"></i> Source Code
+    </a>
+  </div>
+</div>
+
+
+     <!-- Food Demand Prediction -->
+<div class="relative bg-white dark:bg-slate-900 rounded-xl shadow-lg p-6 transition-all duration-500 hover:scale-105 hover:shadow-2xl group overflow-hidden">
+  <div class="absolute -inset-0.5 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+  <div class="relative bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-md">
+    <img src="images/food-demand.png" alt="Food Demand Prediction" class="rounded-md mb-4">
+    <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">Food Demand Prediction</h3>
+    <p class="text-gray-600 dark:text-gray-300 mb-4">Built an ML model to forecast weekly food demand for a meal delivery service, improving inventory management and reducing wastage.</p>
+    <div class="flex gap-2 mb-4">
+      <span class="px-3 py-1 bg-gray-200 dark:bg-slate-700 rounded-lg text-sm">Python</span>
+      <span class="px-3 py-1 bg-gray-200 dark:bg-slate-700 rounded-lg text-sm">Pandas</span>
+      <span class="px-3 py-1 bg-gray-200 dark:bg-slate-700 rounded-lg text-sm">Machine Learning</span>
+    </div>
+    <a href="https://github.com/mahadevjagtap/food-demand-prediction" target="_blank" class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline">
+      <i class="fab fa-github mr-2"></i> Source Code
+    </a>
+  </div>
+</div>
+
+      <!-- Email Spam Detection -->
+      <div class="relative bg-white dark:bg-slate-900 rounded-xl shadow-lg p-6 transition-all duration-500 hover:scale-105 hover:shadow-2xl group overflow-hidden">
+        <!-- <div class="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl"
+             style="background: linear-gradient(45deg, #ff4ecd, #4e9dff, #42ff91); z-index: -1;"></div> -->
+         <div class="absolute -inset-0.5 bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+          <div class="relative bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-md">
+             <img src="images/email-spam.png" alt="Email Spam Detection" class="rounded-md mb-4">
+        <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">Email Spam Detection</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">ML model to classify emails as spam or not spam using Natural Language Processing techniques.</p>
+        <div class="flex gap-2 mb-4">
+          <span class="px-3 py-1 bg-gray-200 dark:bg-slate-700 rounded-lg text-sm">Python</span>
+          <span class="px-3 py-1 bg-gray-200 dark:bg-slate-700 rounded-lg text-sm">NLTK</span>
+          <span class="px-3 py-1 bg-gray-200 dark:bg-slate-700 rounded-lg text-sm">Machine Learning</span>
+        </div>
+        <a href="https://github.com/mahadevjagtap/email-spam-detection" target="_blank" class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline">
+          <i class="fab fa-github mr-2"></i> Source Code
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- CONTACT -->
+  <!-- CONTACT -->
+<section id="contact" class="py-20 bg-slate-50 dark:bg-slate-950/30">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold">Get in Touch</h2>
+    <div class="w-16 h-1 bg-blue-600 mx-auto mt-2 rounded"></div>
+
+    <p class="mt-6 text-slate-600 dark:text-slate-300 max-w-xl mx-auto">
+      I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology.
+    </p>
+
+    <!-- Contact Info -->
+    <div class="mt-10 space-y-6 text-left max-w-md mx-auto">
+      <div class="flex items-center gap-4">
+        <div class="p-3 bg-slate-100 dark:bg-slate-800 rounded-full">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M16 12H8m0 0l4-4m-4 4l4 4M4 4h16v16H4z"/>
+          </svg>
+        </div>
+        <div>
+          <h4 class="font-semibold">Email</h4>
+          <p class="text-slate-600 dark:text-slate-400">mmjagtap007@gmail.com</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <div class="p-3 bg-slate-100 dark:bg-slate-800 rounded-full">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 5a2 2 0 012-2h3.28a2 2 0 011.79 1.11l1.4 2.8a2 2 0 01-.45 2.35l-1.83 1.83a16.001 16.001 0 007.07 7.07l1.83-1.83a2 2 0 012.35-.45l2.8 1.4a2 2 0 011.11 1.79V19a2 2 0 01-2 2h-1C9.163 21 3 14.837 3 7V6a2 2 0 012-2z"/>
+          </svg>
+        </div>
+        <div>
+          <h4 class="font-semibold">Phone</h4>
+          <p class="text-slate-600 dark:text-slate-400">+91 9019758571</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Social Links -->
+    <!-- Social Links -->
+<div class="mt-10">
+  <h4 class="font-semibold mb-3">Connect with me:</h4>
+  <div class="flex justify-center gap-6 text-3xl">
+    <!-- GitHub -->
+    <a href="https://github.com/mahadevjagtap" target="_blank" class="hover:text-blue-600">
+      <i class="fab fa-github"></i>
+    </a>
+    <!-- LinkedIn -->
+    <a href="https://linkedin.com/in/mahadevjagtap" target="_blank" class="hover:text-blue-600">
+      <i class="fab fa-linkedin"></i>
+    </a>
+  </div>
+</div>
+
+  </div>
+</section>
+
+
+  <!-- FOOTER -->
+  <footer class="py-8 text-center text-sm text-slate-500 dark:text-slate-400">
+    © <span id="y"></span> Mahadev. All rights reserved.
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Theme (persist like the reference)
+    const root = document.documentElement;
+    const themeBtn = document.getElementById('themeBtn');
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      root.classList.add('dark');
+    }
+    themeBtn.addEventListener('click', () => {
+      root.classList.toggle('dark');
+      localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>
